@@ -42,3 +42,33 @@ FROM FactInternetSales S
 GROUP BY CONCAT(C.FirstName, ' ', C.LastName);
 ````
 ![image](https://github.com/user-attachments/assets/6753a968-2149-4015-828f-7315158dab3e)
+
+
+#### Question 4: Find the total quantity sold for each product
+
+````sql
+SELECT
+	DP.ProductKey,
+	SUM(FS.OrderQuantity) TotalQuantity
+FROM FactInternetSales FS 
+	JOIN DimProduct DP
+		ON DP.ProductKey = FS.ProductKey
+GROUP BY DP.ProductKey;
+````
+![image](https://github.com/user-attachments/assets/c2af47b1-cc0a-46f6-a838-ca35bba1ec81)
+
+
+#### Question 5: Find the total sales amount for each territory
+
+````sql
+SELECT
+	SalesTerritoryKey,
+	SUM(SalesAmount) AS Totalsales
+FROM [dbo].[FactInternetSales]
+GROUP BY SalesTerritoryKey;
+````
+![image](https://github.com/user-attachments/assets/ac524bac-1ee9-4324-9745-3aaae0ec786d)
+
+
+
+
