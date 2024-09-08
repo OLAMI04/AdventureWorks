@@ -1,5 +1,5 @@
 
---Group Assignment
+
 --Question 1: Find the total number of products in each product category
 
 SELECT
